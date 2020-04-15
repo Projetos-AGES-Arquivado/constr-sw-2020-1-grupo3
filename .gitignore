@@ -8,5 +8,9 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
+
+# WebStorm
+./.idea
+
 **/node_modules
 **/vendor
