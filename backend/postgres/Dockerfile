@@ -1,7 +1,7 @@
-FROM postgres:11.3
+FROM postgres:11.7
 
 ENV PG_MAJOR 11
-ENV PG_FULL  11.3
+ENV PG_FULL  11.7
 
 RUN localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.utf-8
 
