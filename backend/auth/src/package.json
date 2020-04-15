@@ -6,7 +6,7 @@
   "scripts": {
     "build": "yarn run prestart && yarn build",
     "prestart": "yarn install",
-    "start": "nodemon app.js"
+    "start": "nodemon --legacy-watch app.js"
   },
   "keywords": [],
   "author": "",
