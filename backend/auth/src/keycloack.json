@@ -1,8 +1,11 @@
 {
-    "realm": "test-keycloak",
+    "realm": "constr",
     "auth-server-url": "http://host.docker.internal:8080/auth",
     "ssl-required": "external",
-    "resource": "teste",
-    "public-client": true,
+    "bearer-only": true,
+    "resource": "api",
+    "credentials": {
+        "secret": "3b2ebd31-0baa-4927-92e6-458e6678e245"
+    },
     "confidential-port": 0
 }
