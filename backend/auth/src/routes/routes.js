@@ -29,17 +29,17 @@ routes.post('/login', (req, res) => {
 
 //equipament
 
-routes.get('/equipament',keycloak.protect(),equipamentController.index);
-routes.post('/equipament',keycloak.protect(),equipamentController.store);
-routes.delete('/equipament/:equipamentId',keycloak.protect(),equipamentController.delete);
-routes.patch('/equipament/:equipamentId',keycloak.protect(),equipamentController.update);
+routes.get('/equipament',equipamentController.index);
+routes.post('/equipament',equipamentController.store);
+routes.delete('/equipament/:equipamentId',equipamentController.delete);
+routes.put('/equipament/:equipamentId',equipamentController.update);
 
 //rooms
 
-routes.get('/room',keycloak.protect(),roomController.index);
-routes.post('/room',keycloak.protect(),roomController.store);
-routes.delete('/room/:roomId',keycloak.protect(),roomController.delete);
-routes.patch('/room/:roomId',keycloak.protect(),roomController.update);
+routes.get('/room',roomController.index);
+routes.post('/room',roomController.store);
+routes.delete('/room/:roomId',roomController.delete);
+routes.put('/room/:roomId',roomController.update);
 
 //Swagger UI
 
