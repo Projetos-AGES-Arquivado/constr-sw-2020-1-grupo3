@@ -56,16 +56,22 @@ module.exports = {
         const {
             description, type, capacity
         } = req.body;
+        let update = {};
+        if(description){
+            update.description = description;
+        }
+        if(type){
+            update.type = type;
+        }
+        if(capacity){
+            update.capacity = capacity;
+        }
         const room = await getRoomById(roomId);
         if(room === null){
             return res.status(400).send( {status: false, msg: `Room id ${roomId} doesn't exists!`});
         }
         const updated = await room.updateOne({
-            $set: {
-                description,
-                type,
-                capacity
-            }
+            $set: update
         });
 
         const roomUpdate = await getRoomById(roomId);

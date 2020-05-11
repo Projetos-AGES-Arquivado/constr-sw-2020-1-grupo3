@@ -34,6 +34,7 @@ routes.get('/equipament/:equipamentId',equipamentController.index);
 routes.post('/equipament',equipamentController.store);
 routes.delete('/equipament/:equipamentId',equipamentController.delete);
 routes.put('/equipament/:equipamentId',equipamentController.update);
+routes.patch('/equipament/:equipamentId',equipamentController.update);
 
 //rooms
 
@@ -42,6 +43,7 @@ routes.get('/room/:roomId',roomController.index);
 routes.post('/room',roomController.store);
 routes.delete('/room/:roomId',roomController.delete);
 routes.put('/room/:roomId',roomController.update);
+routes.patch('/room/:roomId',roomController.update);
 
 //Swagger UI
 

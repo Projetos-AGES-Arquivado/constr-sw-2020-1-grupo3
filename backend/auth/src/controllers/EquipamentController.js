@@ -54,16 +54,23 @@ module.exports = {
         const {
             description, type, brand
         } = req.body;
+
+        let update = {};
+        if(description){
+            update.description = description;
+        }
+        if(type){
+            update.type = type;
+        }
+        if(brand){
+            update.brand = brand;
+        }
         const equipament = await getEquipamentById(equipamentId);
         if (equipament === null) {
             return res.status(400).send({status: false, msg: `Equipament id ${equipamentId} doesn't exists!`});
         }
         const updated = await equipament.updateOne({
-            $set: {
-                description,
-                type,
-                brand
-            }
+            $set: update
         });
 
 
