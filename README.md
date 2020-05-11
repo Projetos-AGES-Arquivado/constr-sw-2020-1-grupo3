@@ -9,6 +9,11 @@ http://3.95.159.215:3456/ping
 
 54.234.119.208:8080 -> keycloak
 
+### Para acessar a documentção:
+
+http://3.95.159.215:3456/api-docs
+
+
 ### Diagrama de classes:
 
 ![class_diagram](Diagrama%20recursos%20e%20tipos.png)
