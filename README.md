@@ -14,7 +14,7 @@ http://3.95.159.215:3456/ping
 ```yaml
 swagger: "2.0"
 info:
-  description: "This is a API regarding the resources."
+  description: "This is the API for the resources."
   version: "0.1.0"
   title: "Types + Resources"
 host: "54.234.109.208:3456"
