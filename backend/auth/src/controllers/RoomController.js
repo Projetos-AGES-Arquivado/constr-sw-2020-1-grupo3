@@ -13,6 +13,14 @@ async function getRoomById(id){
 
 module.exports = {
     async index(req, res) {
+        const {roomId} = req.params;
+        if(roomId){
+            const room = await getRoomById(roomId);
+            if (room === null) {
+                return res.status(400).send({status: false, msg: `Room id ${roomId} doesn't exists!`});
+            }
+            return res.status(200).json(room)
+        }
         const rooms = await Room.find().sort('-createdAt');
         res.status(200).send(rooms);
     },
@@ -27,7 +35,7 @@ module.exports = {
             capacity,
         });
 
-        return res.status(200).json(room);
+        return res.status(201).json(room);
     },
     async delete(req,res){
         const { roomId } = req.params;

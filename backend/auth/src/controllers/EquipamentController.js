@@ -11,8 +11,16 @@ async function getEquipamentById(id){
 
 module.exports = {
     async index(req, res) {
+        const {equipamentId} = req.params;
+        if(equipamentId){
+            const equipament = await getEquipamentById(equipamentId);
+            if (equipament === null) {
+                return res.status(400).send({status: false, msg: `Equipament id ${equipamentId} doesn't exists!`});
+            }
+            return res.status(200).json(equipament)
+        }
         const equipaments = await Equipament.find().sort('-createdAt');
-        res.send(equipaments);
+        return res.status(200).json(equipaments);
     },
     async store(req, res) {
         const {
@@ -25,7 +33,7 @@ module.exports = {
             brand,
         });
 
-        res.json(equipament);
+        return res.status(201).json(equipament);
     },
     async delete(req, res) {
         const {equipamentId} = req.params;
