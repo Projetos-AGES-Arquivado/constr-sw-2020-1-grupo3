@@ -2,6 +2,9 @@ const express    = require('express');
 const {keycloak} = require('../config/keycloak');
 const routes = new express.Router();
 
+const swaggerUi  = require('swagger-ui-express')
+const swaggerDocument = require('../swagger.json')
+
 const equipamentController = require('../controllers/EquipamentController');
 const roomController = require('../controllers/RoomController');
 
@@ -37,5 +40,10 @@ routes.get('/room',keycloak.protect(),roomController.index);
 routes.post('/room',keycloak.protect(),roomController.store);
 routes.delete('/room/:roomId',keycloak.protect(),roomController.delete);
 routes.patch('/room/:roomId',keycloak.protect(),roomController.update);
+
+//Swagger UI
+
+routes.use('/api-docs', swaggerUi.serve);
+routes.get('/api-docs', swaggerUi.setup(swaggerDocument))
 
 module.exports = routes;
