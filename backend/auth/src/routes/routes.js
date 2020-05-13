@@ -47,7 +47,7 @@ routes.patch('/room/:roomId', keycloak.protect() ,roomController.update);
 
 //Swagger UI
 
-routes.use('/api-docs', swaggerUi.serve);
-routes.get('/api-docs', swaggerUi.setup(swaggerDocument))
+routes.use('/api', swaggerUi.serve);
+routes.get('/api', swaggerUi.setup(swaggerDocument))
 
 module.exports = routes;

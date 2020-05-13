@@ -11,7 +11,7 @@ http://3.95.159.215:3456/ping
 
 ### Para acessar a documentção:
 
-http://3.95.159.215:3456/api-docs
+http://3.95.159.215:3456/api
 
 
 ### Diagrama de classes:
