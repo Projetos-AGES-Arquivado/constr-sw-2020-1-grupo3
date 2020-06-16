@@ -5,8 +5,8 @@ const routes = new express.Router();
 const swaggerUi  = require('swagger-ui-express')
 const swaggerDocument = require('../swagger.json')
 
-const equipamentController = require('../controllers/EquipamentController');
-const roomController = require('../controllers/RoomController');
+const resourceController = require('../controllers/resourceController');
+const resourceTypeController = require('../controllers/resourceTypeController')
 
 routes.get('/ping', function(req, res) {
   res.status(200).send({pong: true});
@@ -27,23 +27,21 @@ routes.post('/login', (req, res) => {
 });
 
 
-//equipament
+//resources
+routes.get('/resources', keycloak.protect() ,resourceController.index);
+routes.get('/resources/:resourceId', keycloak.protect() ,resourceController.index);
+routes.post('/resources', keycloak.protect() ,resourceController.store);
+routes.delete('/resources/:resourceId', keycloak.protect() ,resourceController.delete);
+routes.put('/resources/:resourceId', keycloak.protect() ,resourceController.update);
+routes.patch('/resources/:resourceId', keycloak.protect() ,resourceController.update);
 
-routes.get('/equipament', keycloak.protect() , equipamentController.index);
-routes.get('/equipament/:equipamentId', keycloak.protect(), equipamentController.index);
-routes.post('/equipament', keycloak.protect(), equipamentController.store);
-routes.delete('/equipament/:equipamentId', keycloak.protect(), equipamentController.delete);
-routes.put('/equipament/:equipamentId', keycloak.protect(), equipamentController.update);
-routes.patch('/equipament/:equipamentId', keycloak.protect(), equipamentController.update);
-
-//rooms
-
-routes.get('/room', keycloak.protect() ,roomController.index);
-routes.get('/room/:roomId', keycloak.protect() ,roomController.index);
-routes.post('/room', keycloak.protect() ,roomController.store);
-routes.delete('/room/:roomId', keycloak.protect() ,roomController.delete);
-routes.put('/room/:roomId', keycloak.protect() ,roomController.update);
-routes.patch('/room/:roomId', keycloak.protect() ,roomController.update);
+//resource types
+routes.get('/resources-types', keycloak.protect() , resourceTypeController.index);
+routes.get('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.index);
+routes.post('/resources-types', keycloak.protect(), resourceTypeController.store);
+routes.delete('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.delete);
+routes.put('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.update);
+routes.patch('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.update);
 
 //Swagger UI
 
