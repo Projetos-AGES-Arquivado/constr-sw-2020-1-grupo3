@@ -1,0 +1,291 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is the API for the resources types.",
+      "version": "0.1.0",
+      "title": "Resources Types"
+    },
+    "host": "54.234.109.208:3456",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "ResourcesTypes",
+        "description": "ResourcesTypes CRUD"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/resources-types": {
+        "post": {
+          "tags": [
+            "ResourcesTypes"
+          ],
+          "summary": "Add a new resource type",
+          "description": "Creates a resource type with the given parameters.",
+          "operationId": "addResourcesTypes",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "ResourcesTypes object that needs to be added",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ResourcesTypes"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/ResponseResourcesTypes"
+              }
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "403": {
+              "description": "Forbidden"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ResourcesTypes"
+          ],
+          "summary": "Return list of resources types",
+          "description": "Returns all the resources types in the database or returns a subset of resources types corresponding to the query, if used",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "brand",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ResponseResourcesTypes"
+                }
+              },
+              "description": "OK"
+            },
+            "403": {
+              "description": "Forbidden"
+            }
+          }
+        }
+      },
+      "/resources-types/{resourceId}": {
+        "get": {
+          "tags": [
+            "ResourcesTypes"
+          ],
+          "summary": "Find resources types by ID",
+          "description": "Returns a single resource type.",
+          "operationId": "getEquipById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "resourceTypeId",
+              "in": "path",
+              "description": "ResourcesTypes ID to return",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/ResponseResourcesTypes"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "ResourcesTypes not found"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ResourcesTypes"
+          ],
+          "summary": "Delete a resource type",
+          "description": "",
+          "operationId": "deleteResourcesTypes",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "resourceTypeId",
+              "in": "path",
+              "description": "ResourcesTypes ID to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "ResourcesTypes not found"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "ResourcesTypes"
+          ],
+          "summary": "Update all the attributes of the object",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "resourceTypeId",
+              "in": "path",
+              "description": "ResourcesTypes ID to update",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "description": "ResourcesTypes object that needs to be updated",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ResourcesTypes"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ResourcesTypes"
+          ],
+          "summary": "Update some of the attributes of the object",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "resourceTypeId",
+              "in": "path",
+              "description": "ResourcesTypes ID to update",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "description": "ResourcesTypes object attribute that needs to be updated",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/PatchResourcesTypes"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "ResourcesTypes": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "Equipamento"
+          }
+        }
+      },
+      "PatchResourcesTypes": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "Sala"
+          }
+        }
+      },
+      "ResponseResourcesTypes": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "5eb34dfecfe3e3f151c61"
+          },
+          "type": {
+            "type": "string",
+            "example": "Equipamento"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-05-06T23:47:35.598Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-05-06T23:47:35.598Z"
+          },
+          "__v": {
+            "type": "integer",
+            "example": 0
+          }
+        }
+      }
+    },
+    "externalDocs": {
+      "description": "API Repository",
+      "url": "github.com/AGES-PUCRS/constr-sw-2020-1-grupo3"
+    }
+  }

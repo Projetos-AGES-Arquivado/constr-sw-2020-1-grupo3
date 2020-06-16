@@ -3,7 +3,8 @@ const {keycloak} = require('../config/keycloak');
 const routes = new express.Router();
 
 const swaggerUi  = require('swagger-ui-express')
-const swaggerDocument = require('../swagger.json')
+const swaggerResource = require('../swagger/resource.json')
+const swaggerResourceType = require('../swagger/resourceType.json')
 
 const resourceController = require('../controllers/resourceController');
 const resourceTypeController = require('../controllers/resourceTypeController')
@@ -44,8 +45,10 @@ routes.put('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeC
 routes.patch('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.update);
 
 //Swagger UI
+routes.use('/resources/api', swaggerUi.serve);
+routes.get('/resources/api', swaggerUi.setup(swaggerResource))
 
-routes.use('/api', swaggerUi.serve);
-routes.get('/api', swaggerUi.setup(swaggerDocument))
+routes.use('/resources-types/api', swaggerUi.serve);
+routes.get('/resources-types/api', swaggerUi.setup(swaggerResourceType))
 
 module.exports = routes;
