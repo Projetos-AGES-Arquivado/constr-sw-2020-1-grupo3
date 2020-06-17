@@ -5,7 +5,7 @@
     "version": "0.1.0",
     "title": "Resources"
   },
-  "host": "54.234.109.208:3456",
+  "host": "http://52.91.97.146:3456",
   "basePath": "/",
   "tags": [
     {

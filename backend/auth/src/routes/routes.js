@@ -45,10 +45,10 @@ routes.put('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeC
 routes.patch('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.update);
 
 //Swagger UI
-routes.use('/resources/api', swaggerUi.serve);
-routes.get('/resources/api', swaggerUi.setup(swaggerResource))
+routes.use('/resources-doc/api', swaggerUi.serve);
+routes.get('/resources-doc/api', swaggerUi.setup(swaggerResource))
 
-routes.use('/resources-types/api', swaggerUi.serve);
-routes.get('/resources-types/api', swaggerUi.setup(swaggerResourceType))
+routes.use('/resources-types-doc/api', swaggerUi.serve);
+routes.get('/resources-types-doc/api', swaggerUi.setup(swaggerResourceType))
 
 module.exports = routes;
