@@ -29,20 +29,20 @@ routes.post('/login', (req, res) => {
 
 
 //resources
-routes.get('/resources', keycloak.protect() ,resourceController.index);
-routes.get('/resources/:resourceId', keycloak.protect() ,resourceController.index);
-routes.post('/resources', keycloak.protect() ,resourceController.store);
-routes.delete('/resources/:resourceId', keycloak.protect() ,resourceController.delete);
-routes.put('/resources/:resourceId', keycloak.protect() ,resourceController.update);
-routes.patch('/resources/:resourceId', keycloak.protect() ,resourceController.update);
+routes.get('/resources', resourceController.index);
+routes.get('/resources/:resourceId', resourceController.index);
+routes.post('/resources', resourceController.store);
+routes.delete('/resources/:resourceId', resourceController.delete);
+routes.put('/resources/:resourceId', resourceController.update);
+routes.patch('/resources/:resourceId', resourceController.update);
 
 //resource types
-routes.get('/resources-types', keycloak.protect() , resourceTypeController.index);
-routes.get('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.index);
-routes.post('/resources-types', keycloak.protect(), resourceTypeController.store);
-routes.delete('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.delete);
-routes.put('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.update);
-routes.patch('/resources-types/:resourceTypeId', keycloak.protect(), resourceTypeController.update);
+routes.get('/resources-types',  resourceTypeController.index);
+routes.get('/resources-types/:resourceTypeId', resourceTypeController.index);
+routes.post('/resources-types', resourceTypeController.store);
+routes.delete('/resources-types/:resourceTypeId', resourceTypeController.delete);
+routes.put('/resources-types/:resourceTypeId', resourceTypeController.update);
+routes.patch('/resources-types/:resourceTypeId', resourceTypeController.update);
 
 //Swagger UI
 routes.use('/resources-doc/api', swaggerUi.serve);
