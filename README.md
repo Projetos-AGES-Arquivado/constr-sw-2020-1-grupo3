@@ -3,15 +3,15 @@ Repositório de artefatos do Grupo 3 da turma 2020/1 de Construção de Software
 
 ### Para fazer testes:
 
-http://3.95.159.215:3456/login { "login": "user", "password": "user" }
+http://52.91.97.146:3456/login { "login": "user", "password": "user" }
 
-http://3.95.159.215:3456/ping
+http://52.91.97.146:3456/ping
 
-54.234.119.208:8080 -> keycloak
+52.91.97.146:8080 -> keycloak
 
 ### Para acessar a documentção:
 
-http://3.95.159.215:3456/api
+http://52.91.97.146:3456/api
 
 
 ### Diagrama de classes:
