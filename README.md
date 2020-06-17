@@ -12,6 +12,7 @@ http://52.91.97.146:3456/ping
 ### Para acessar a documentção:
 
 http://52.91.97.146:3456/resources-doc/api
+
 http://52.91.97.146:3456/resources-types-doc/api
 
 
