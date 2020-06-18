@@ -12,9 +12,9 @@ mongoose.connect('mongodb+srv://user:userpass@cluster0-tthez.mongodb.net/test?re
 
 const app = express();
 app.use( (request, response, next) => {
-    request.header("Access-Control-Allow-Headers", "*");
-    request.header("Access-Control-Allow-Origin", "*");
-    request.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE,PATCH');
+    response.header("Access-Control-Allow-Headers", "*");
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE,PATCH');
     app.use(cors());
     next();
 })
