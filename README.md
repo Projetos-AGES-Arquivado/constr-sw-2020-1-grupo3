@@ -3,17 +3,17 @@ Repositório de artefatos do Grupo 3 da turma 2020/1 de Construção de Software
 
 ### Para fazer testes:
 
-http://52.91.97.146:3456/login { "login": "user", "password": "user" }
+http://168.227.250.164:3456/login { "login": "user", "password": "user" }
 
-http://52.91.97.146:3456/ping
+http://168.227.250.164:3456/ping
 
 52.91.97.146:8080 -> keycloak
 
 ### Para acessar a documentção:
 
-http://52.91.97.146:3456/resources-doc/api
+http://168.227.250.164:3456/resources-doc/api
 
-http://52.91.97.146:3456/resources-types-doc/api
+http://168.227.250.164:3456/resources-types-doc/api
 
 
 ### Diagrama de classes:

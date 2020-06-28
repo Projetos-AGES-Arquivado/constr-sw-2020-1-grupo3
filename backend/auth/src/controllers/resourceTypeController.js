@@ -25,10 +25,10 @@ module.exports = {
     },
     async store(req, res) {
         const { type } = req.body;
+        const resourceType = require('../models/resourceType');
+        const create = await resourceType.create({ type });
 
-        const resourceType = await resourceType.create({ type });
-
-        return res.status(201).json(resourceType);
+        return res.status(201).json(create);
     },
     async delete(req,res){
         const { resourceTypeId } = req.params;

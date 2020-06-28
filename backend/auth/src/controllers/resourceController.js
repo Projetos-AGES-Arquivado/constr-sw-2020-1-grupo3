@@ -2,7 +2,7 @@ const resource = require('../models/resource');
 
 async function getResourceById(id){
     try {
-        return await resource.findById(id);
+        return await resource.findById(id).populate('resourceType');
     } catch (e) {
         return null;
     }
@@ -23,13 +23,14 @@ module.exports = {
             }
             return res.status(200).json(resource)
         }
-        const resources = await resource.find().sort('-createdAt');
+        const resources = await resource.find().populate('resourceType').sort('-createdAt');
         return res.status(200).json(resources);
     },
     async store(req, res) {
         const { resourceType, resourceName } = req.body;
+        const modelResource = require('../models/resource');
 
-        const resource = await resource.create({
+        const resource = await modelResource.create({
             resourceType,
             resourceName
         });
